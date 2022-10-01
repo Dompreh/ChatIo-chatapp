@@ -8,7 +8,7 @@
   },
   "author": "Stephen Asiedu",
   "license": "ISC",
-  "depndencies":{
+  "dependencies":{
     "socket.io":"*",
     "express":"*"
   }
