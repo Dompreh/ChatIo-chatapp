@@ -1,0 +1,85 @@
+body {
+    /* background: #f9f9f9; */
+    background: url('bg1.jpg')  repeat ;
+    object-fit: fill;
+  }
+
+  #container {
+    width: 700px;
+    margin: 0 auto;
+    
+  }
+
+
+ 
+  #chatWindow {
+    height: 300px;
+    width: 300px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+  
+  #chatWindow::-webkit-scrollbar{
+    display: none;
+  }
+
+  #mainWrapper {
+    display: none;
+  }
+
+  #chatWrapper {
+    float: left;
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    background: #f4f4f4;
+    padding: 10px;
+    background: url('bg3.jpg') no-repeat center center ;
+    object-fit: cover;
+    
+  }
+
+  #userWrapper {
+    float: left;
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    background: #f4f4f4;
+    padding: 10px;
+    margin-left: 20px;
+    width: 150px;
+    max-height: 200px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  #userWrapper::-webkit-scrollbar{
+    display: none;
+  }
+
+  #namesWrapper {
+    float: left;
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    background: #f4f4f4;
+    padding: 10px;
+    margin-left: 20px;
+    background: url('bg3.jpg') no-repeat center center ;
+    object-fit: cover;
+  }
+
+  input {
+    height: 30px;
+    border: 1px solid #ccc;
+    outline: #ccc;
+    word-break: break-all;
+    border-radius: 10px;
+  }
+
+  #users{
+    font-weight: 600;
+  }
+  input[type="submit"]{
+    background-color: #2E284E;
+    color: #fff;
+    border: 1px solid #2E284E;
+    cursor: pointer;
+  }

@@ -4,6 +4,7 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+const path = require('path')
 
 let usernames=[]
 
@@ -12,6 +13,10 @@ let usernames=[]
 app.get('/', function(req,res){
     res.sendFile(__dirname + '/index.html')
 })
+
+app.use(express.static(process.cwd() + '/public'));
+
+
 
 io.on('connection', function(socket){
     console.log('Socket Connected...')

@@ -5,59 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat IO</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <style>
-      body {
-        background: #f9f9f9;
-      }
-
-      #container {
-        width: 700px;
-        margin: 0 auto;
-      }
-
-      #chatWindow {
-        height: 300px;
-      }
-
-      #mainWrapper {
-        display: none;
-      }
-
-      #chatWrapper {
-        float: left;
-        border: 1px #ccc solid;
-        border-radius: 10px;
-        background: #f4f4f4;
-        padding: 10px;
-      }
-
-      #userWrapper {
-        float: left;
-        border: 1px #ccc solid;
-        border-radius: 10px;
-        background: #f4f4f4;
-        padding: 10px;
-        margin-left: 20px;
-        width: 150px;
-        max-height: 200px;
-      }
-
-      #namesWrapper {
-        float: left;
-        border: 1px #ccc solid;
-        border-radius: 10px;
-        background: #f4f4f4;
-        padding: 10px;
-        margin-left: 20px;
-      }
-
-      input {
-        height: 30px;
-        border: 1px solid #ccc;
-        outline: #ccc;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="container">
@@ -66,7 +14,7 @@
         <p>Create Username:</p>
         <div id="error"></div>
         <form id="usernameForm">
-          <input type="text" id="username" size="35" />
+          <input type="text" id="username" size="35" required/>
           <input type="submit" value="Submit" />
         </form>
       </div>
@@ -81,6 +29,7 @@
               id="message"
               size="35"
               placeholder="Say Something..."
+              required
             />
             <input type="submit" value="Submit" />
           </form>
@@ -130,6 +79,11 @@
 
         $messageForm.submit(function(e){
             e.preventDefault()
+
+            if ($.trim($message.val()) === "") {
+              alert('input field is empty');
+              return false;
+          }
           
             socket.emit('send message', $message.val());
             $message.val(' ')
@@ -137,8 +91,14 @@
 
         socket.on('new message', function(data){
             $chat.append(`<strong>${data.user}</strong>: `,data.msg + `<br>`)
+
+            $chat.animate({
+              scrollTop:$chat.offset().top
+            }, 1000)
         })
       });
     </script>
   </body>
 </html>
+
+
